@@ -1,6 +1,6 @@
 # Remix Bluegrass Stack
 
-![Hayseed Dixie Large](https://user-images.githubusercontent.com/5982044/200115085-8c5a3f02-ee2b-471f-a536-3e82de023e51.jpg)
+![Hayseed Dixie on Stage](https://user-images.githubusercontent.com/5982044/200115144-4b8c6bb7-1e47-4ed8-8438-b8356de586c3.jpg)
 
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
