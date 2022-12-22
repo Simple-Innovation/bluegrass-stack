@@ -1,0 +1,24 @@
+{
+  "name": "remix-server-azure",
+  "version": "0.0.1-alpha.0",
+  "description": "A Remix Server for Azure Functions",
+  "author": "Jeff Emery",
+  "scripts": {
+    "build": "tsc",
+    "build:api": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@remix-run/node": "^1.7.0",
+    "@remix-run/react": "^1.7.0",
+    "@remix-run/serve": "^1.7.0",
+    "@azure/functions": "^3.2.0",
+    "remix-azure": "^0.0.1-beta.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  }
+}
