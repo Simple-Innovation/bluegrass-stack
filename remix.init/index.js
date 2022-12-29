@@ -136,7 +136,6 @@ const main = async ({ isTypeScript, packageManager, rootDirectory }) => {
     "workflows",
     "deploy.yml"
   );
-  const DOCKERFILE_PATH = path.join(rootDirectory, "Dockerfile");
   const CYPRESS_SUPPORT_PATH = path.join(rootDirectory, "cypress", "support");
   const CYPRESS_COMMANDS_PATH = path.join(
     CYPRESS_SUPPORT_PATH,
@@ -167,7 +166,6 @@ const main = async ({ isTypeScript, packageManager, rootDirectory }) => {
   const [
     readme,
     env,
-    dockerfile,
     cypressCommands,
     createUserCommand,
     deleteUserCommand,
@@ -177,7 +175,6 @@ const main = async ({ isTypeScript, packageManager, rootDirectory }) => {
   ] = await Promise.all([
     fs.readFile(README_PATH, "utf-8"),
     fs.readFile(EXAMPLE_ENV_PATH, "utf-8"),
-    fs.readFile(DOCKERFILE_PATH, "utf-8"),
     fs.readFile(CYPRESS_COMMANDS_PATH, "utf-8"),
     fs.readFile(CREATE_USER_COMMAND_PATH, "utf-8"),
     fs.readFile(DELETE_USER_COMMAND_PATH, "utf-8"),
@@ -198,19 +195,11 @@ const main = async ({ isTypeScript, packageManager, rootDirectory }) => {
     APP_NAME
   );
 
-  const newDockerfile = pm.lockfile
-    ? dockerfile.replace(
-        new RegExp(escapeRegExp("ADD package.json"), "g"),
-        `ADD package.json ${pm.lockfile}`
-      )
-    : dockerfile;
-
   updatePackageJson({ APP_NAME, isTypeScript, packageJson });
 
   const fileOperationPromises = [
     fs.writeFile(README_PATH, newReadme),
     fs.writeFile(ENV_PATH, newEnv),
-    fs.writeFile(DOCKERFILE_PATH, newDockerfile),
     ...cleanupCypressFiles({
       fileEntries: [
         [CYPRESS_COMMANDS_PATH, cypressCommands],
