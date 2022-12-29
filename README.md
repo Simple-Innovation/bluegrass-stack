@@ -149,10 +149,7 @@ Function API.
 
 ## Static Web App CLI
 
-The [Azure Static Web App CLI](https://azure.github.io/static-web-apps-cli/)
-allows the developer to build and debug the application locally with an
-emulator. `/swa-cli.config.json` configures the SWA CLI commands for building
-and running the emulator.
+The [Azure Static Web App CLI](https://azure.github.io/static-web-apps-cli/) allows the developer to build and debug the application locally with an emulator. `/swa-cli.config.json` configures the SWA CLI commands for building and running the emulator.
 
 ```json
 {
@@ -180,12 +177,9 @@ and running the emulator.
 ### swa build
 
 Running `swa build` performs the build steps defined in `/swa-cli.config.json`.
-The first step [builds the Remix application](#build-the-remix-server-code) with
-`npm run build:app` defined by `appBuildCommand`. Static assets are built into
-`./public/build`. Server components are built into `./api/build/index.js`. The
-second step
-[builds the Azure Function API](#build-the-remix-server-azure-function) from the
-`./api` directory with `npm run build:api`.
+The first step [builds the Remix application](#build-the-remix-server-code) with `npm run build:app` defined by `appBuildCommand`. Static assets are built into `./public/build`. Server components are built into `./api/build/index.js`. 
+
+The second step [builds the Azure Function API](#build-the-remix-server-azure-function) from the `./api` directory with `npm run build:api`.
 
 ### swa start
 
@@ -294,6 +288,19 @@ The database seed script creates a new user with some data you can use to get st
 
 - Email: `rachel@remix.run`
 - Password: `racheliscool`
+
+### Debugging
+
+The [Azure Static Web App CLI](https://azure.github.io/static-web-apps-cli/) allows the developer to build and debug the application locally with an emulator.
+
+In order to debug the application locally:
+
+- Use **Run and Debug**
+- Select **node.js**
+- Select **Run Script: Start**
+- In a web browser open **http://localhost:3000**
+
+Place breakpoints in Visual Studio code as normal.
 
 ### Relevant code:
 
